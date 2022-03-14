@@ -6,7 +6,9 @@ url no GitHub pages: https://luizlopes12.github.io/CEP_search/
 
 ### Como executar
 Faça um clone desse repositório
+
 Abra um terminal na pasta do projeto
+
 Execute ``` npm i ```
 
 ### Feito com

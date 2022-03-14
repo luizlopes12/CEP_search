@@ -20,20 +20,21 @@ const CepForm = () => {
     }, [cep])
     const handleCep = (e) =>{
         setCep(e.target.value)
-        console.log(cep)
     }
-    console.log(locate.logradouro)
+    const handleKeyPress = (e) =>{
+        e.key == 'Enter' && setCep(e.target.value)
+    }
   return (
     <Container>
         <Title>CEP Search</Title>
-        <TextField style={{margin: '10px'}} pattern="[0-9]*" size='small' onBlur={handleCep} label='CEP' placeholder='1100100'/>
+        <TextField style={{margin: '10px'}} pattern="[0-9]*" size='small' onBlur={handleCep} onKeyDown={handleKeyPress} label='CEP' placeholder='1100100'/>
         {locate !== '' && (
         <>
-        <TextField style={{margin: '10px'}} value={locate.localidade} label='Cidade' placeholder='Piraporinha do Oeste'/>
-        <TextField style={{margin: '10px'}} value={locate.uf} label='Estado' placeholder='RJ'/>
-        <Stack direction="row-reverse">
-            <Button style={{margin: '5px'}} variant="contained" color='success' size='large'>Continuar</Button>
-        </Stack>
+            <TextField style={{margin: '10px'}} value={locate.localidade} size='small' label='Cidade' placeholder='Piraporinha do Oeste'/>
+            <TextField style={{margin: '10px'}} value={locate.uf} size='small' label='Estado' placeholder='RJ'/>
+            <Stack direction="row-reverse">
+                <Button style={{margin: '5px'}} variant="contained" color='success' size='large'>Continuar</Button>
+            </Stack>
         </>
         )}
 
